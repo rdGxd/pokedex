@@ -1,6 +1,6 @@
-import { Search, PokeList } from "@/components";
+import { PokeList, Search } from "@/components";
 
-export default function Home() {
+export default async function Home() {
   return (
     <>
       <Search />

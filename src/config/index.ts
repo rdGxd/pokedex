@@ -1,1 +1,1 @@
-export const URL = "https://pokeapi.co/docs/v2";
+export const URL = "https://pokeapi.co/api/v2/";
