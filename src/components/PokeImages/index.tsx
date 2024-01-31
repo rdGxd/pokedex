@@ -1,7 +1,7 @@
 import { getStatus } from "@/utils/getData";
 import Image from "next/image";
 
-interface PokeImage {
+export interface PokeImage {
   url: string;
 }
 
