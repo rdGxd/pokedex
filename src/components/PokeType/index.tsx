@@ -1,4 +1,4 @@
-import { getStatus } from "@/utils/getData";
+import { getStatus } from "@/utils/getStatus";
 import { PokeImage } from "..";
 
 export const PokeType = async ({ url }: PokeImage) => {
