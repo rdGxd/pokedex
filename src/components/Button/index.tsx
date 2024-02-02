@@ -1,18 +1,16 @@
-"use client";
-
 interface ButtonProps {
   text: string;
   fn?: () => void;
 }
 
-export const Button = async ({ text, fn }: ButtonProps) => {
-  const handleClick = async () => {
+export const Button = ({ text, fn }: ButtonProps) => {
+  const handleClick = () => {
     if (fn) fn();
   };
 
   return (
     <>
-      <button onClick={handleClick} className="text-purple-400" type="button">
+      <button className="text-purple-400" type="button" onClick={handleClick}>
         {text}
       </button>
     </>

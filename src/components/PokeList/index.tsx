@@ -1,32 +1,29 @@
-"use client";
-
 import { URL } from "@/config";
 import { Pokedex } from "@/types/PokeTypes";
+import { getData } from "@/utils/getData";
 import { useEffect, useState } from "react";
 import { PokeImage, PokeType } from "..";
 import { Button } from "../Button";
 
 export const PokeList = () => {
-  const [data, setData] = useState<Pokedex>();
+  const [posts, setPosts] = useState<Pokedex>();
 
   useEffect(() => {
-    async function teste() {
-      const response = await fetch(`${URL}`);
-      const data: Pokedex = await response.json();
-
-      return setData(data);
+    async function fetchData() {
+      const res: Pokedex = await getData(`${URL}/pokemon`);
+      setPosts(res);
     }
 
-    teste();
+    fetchData();
   }, []);
 
   return (
     <>
       <div className="bg-white rounded-lg mt-6">
         <ul className="grid grid-cols-3 gap-5 p-2 ">
-          {data?.results?.map((poke) => (
+          {posts?.results.map((poke) => (
             <li
-              key={poke.name + 1}
+              key={poke.name}
               className="border border-red-500 rounded-2xl shadow-inner shadow-gray-400"
             >
               <div className="flex justify-center  flex-wrap">
@@ -39,7 +36,7 @@ export const PokeList = () => {
             </li>
           ))}
         </ul>
-        <Button text="Next" />
+        <Button text="next" />
       </div>
     </>
   );
