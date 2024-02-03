@@ -1,12 +1,28 @@
 import { URL } from "@/config";
 import { Pokedex } from "@/types/PokeTypes";
 import { getData } from "@/utils/getData";
-import { useEffect, useState } from "react";
+import router from "next/router";
+import { MouseEvent, useEffect, useState } from "react";
 import { PokeImage, PokeType } from "..";
 import { Button } from "../Button";
 
 export const PokeList = () => {
   const [posts, setPosts] = useState<Pokedex>();
+
+  const handleNext = async () => {
+    const data = await getData(posts?.next as string);
+    setPosts(data);
+  };
+
+  const handlePrevious = async () => {
+    const data = await getData(posts?.previous as string);
+    setPosts(data);
+  };
+
+  const handleRedirect = (e: MouseEvent<HTMLLIElement>) => {
+    const value = e.currentTarget.id;
+    router.push(`/about/${value.toLowerCase()}`);
+  };
 
   useEffect(() => {
     async function fetchData() {
@@ -19,10 +35,12 @@ export const PokeList = () => {
 
   return (
     <>
-      <div className="bg-white rounded-lg mt-6">
+      <div className="bg-white rounded-lg mt-6 ">
         <ul className="grid grid-cols-3 gap-5 p-2 ">
           {posts?.results.map((poke) => (
             <li
+              onClick={handleRedirect}
+              id={poke.name}
               key={poke.name}
               className="border border-red-500 rounded-2xl shadow-inner shadow-gray-400"
             >
@@ -36,7 +54,10 @@ export const PokeList = () => {
             </li>
           ))}
         </ul>
-        <Button text="next" />
+        <div className="flex ">
+          {posts?.previous && <Button text="Voltar" fn={handlePrevious} />}
+          {posts?.next && <Button text="Próximo" fn={handleNext} />}
+        </div>
       </div>
     </>
   );

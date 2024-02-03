@@ -1,23 +1,25 @@
 import { PokeStatus } from "@/types/PokeStatus";
 import { getData } from "@/utils/getData";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { PokeImage } from "..";
 
 export const PokeType = ({ url }: PokeImage) => {
   const [type, setType] = useState<PokeStatus>();
 
-  const handleGetType = async () => {
-    const getType: PokeStatus = await getData(url);
-    setType(getType);
-  };
+  useEffect(() => {
+    const handleGetType = async () => {
+      const getType: PokeStatus = await getData(url);
+      setType(getType);
+    };
 
-  handleGetType();
+    handleGetType();
+  }, [url]);
 
   return (
     <div className="flex justify-center  bg-gray-500 rounded-2xl w-full h-full p-5">
       {type?.types.map((r) => (
         <>
-          <p key={r.type.name} className=" mr-1">
+          <p key={r.type.url} className=" mr-1">
             {r.type.name}
           </p>
 

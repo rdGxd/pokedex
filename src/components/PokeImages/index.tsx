@@ -1,20 +1,23 @@
 import { PokeStatus } from "@/types/PokeStatus";
 import { getData } from "@/utils/getData";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 export interface PokeImage {
+  name?: string;
   url: string;
 }
 
 export const PokeImage = ({ url }: PokeImage) => {
   const [image, setImage] = useState<PokeStatus>();
 
-  const handleGetImage = async () => {
-    const res: PokeStatus = await getData(url);
-    setImage(res);
-  };
+  useEffect(() => {
+    const handleGetImage = async () => {
+      const res: PokeStatus = await getData(url);
+      setImage(res);
+    };
 
-  handleGetImage();
+    handleGetImage();
+  }, [url]);
 
   return (
     <img
