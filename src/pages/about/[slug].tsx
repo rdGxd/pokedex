@@ -1,3 +1,12 @@
+import {
+  AboutInitial,
+  AboutPoke,
+  BaseStats,
+  BasicStats,
+  Header,
+  PokeType,
+  Search,
+} from "@/components";
 import { URL } from "@/config";
 import { PokeStatus } from "@/types/PokeStatus";
 import { getData } from "@/utils/getData";
@@ -8,19 +17,29 @@ export default function About() {
   const [status, setStatus] = useState<PokeStatus>();
   const router = useRouter();
 
+  const value = router.query.slug as string;
+  const url = `${URL}/pokemon/${value}`;
+
   useEffect(() => {
     const getPokemon = async () => {
-      const data = await getData(`${URL}/pokemon/${router.query.slug}`);
+      const data = await getData(url);
       setStatus(data);
     };
 
     getPokemon();
-  }, [router.query.slug]);
-  console.log(status)
+  }, [value, url]);
 
   return (
-    <>
-      <h1>{router.query.slug}</h1>
-    </>
+    <div className="bg-gray-500 p-1">
+      <Header />
+      <Search />
+      <AboutInitial status={status} />
+      <div className="bg-white rounded p-5">
+        <PokeType url={url} />
+        <AboutPoke />
+        <BasicStats status={status} />
+        <BaseStats />
+      </div>
+    </div>
   );
 }

@@ -1,15 +1,16 @@
 interface ButtonProps {
   text: string;
   fn?: () => {};
+  className: string;
 }
 
-export const Button = ({ text, fn }: ButtonProps) => {
+export const Button = ({ text, fn, className }: ButtonProps) => {
   const handleClick = () => {
     if (fn) fn();
   };
 
   return (
-    <div className="bg-black w-full flex justify-around">
+    <div className={`${className}`}>
       <button className="text-purple-400" type="button" onClick={handleClick}>
         {text}
       </button>

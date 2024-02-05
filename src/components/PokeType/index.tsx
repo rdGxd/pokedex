@@ -16,18 +16,20 @@ export const PokeType = ({ url }: PokeImage) => {
   }, [url]);
 
   return (
-    <div className="flex justify-center  bg-gray-500 rounded-2xl w-full h-full p-5">
-      {type?.types.map((r) => (
-        <>
-          <p key={r.type.url} className=" mr-1">
-            {r.type.name}
-          </p>
+    <div className="flex justify-center">
+      <div className="flex justify-around bg-gray-500 rounded-2xl h-fit w-fit p-5 content-center text-center ">
+        {type?.types.map((r) => (
+          <>
+            <p key={r.type.url} className="mr-2">
+              {r.type.name}
+            </p>
 
-          {/* {r.type.name === "fire" && (
+            {/* {r.type.name === "fire" && (
             <p className="bg-red-500">{r.type.name}</p>
           )} */}
-        </>
-      ))}
+          </>
+        ))}
+      </div>
     </div>
   );
 };

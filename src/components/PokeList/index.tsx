@@ -3,7 +3,7 @@ import { Pokedex } from "@/types/PokeTypes";
 import { getData } from "@/utils/getData";
 import router from "next/router";
 import { MouseEvent, useEffect, useState } from "react";
-import { PokeImage, PokeType } from "..";
+import { Header, PokeImage, PokeType, Search } from "..";
 import { Button } from "../Button";
 
 export const PokeList = () => {
@@ -34,7 +34,9 @@ export const PokeList = () => {
   }, []);
 
   return (
-    <>
+    <div className="bg-red-500">
+      <Header />
+      <Search />
       <div className="bg-white rounded-lg mt-6 ">
         <ul className="grid grid-cols-3 gap-5 p-2 ">
           {posts?.results.map((poke) => (
@@ -42,7 +44,7 @@ export const PokeList = () => {
               onClick={handleRedirect}
               id={poke.name}
               key={poke.name}
-              className="border border-red-500 rounded-2xl shadow-inner shadow-gray-400"
+              className="border border-red-500 rounded-2xl shadow-inner shadow-gray-400 cursor-pointer"
             >
               <div className="flex justify-center  flex-wrap">
                 <h3 className="text-black text-1xl mt-2 font-bold">
@@ -54,11 +56,23 @@ export const PokeList = () => {
             </li>
           ))}
         </ul>
-        <div className="flex ">
-          {posts?.previous && <Button text="Voltar" fn={handlePrevious} />}
-          {posts?.next && <Button text="Próximo" fn={handleNext} />}
+        <div className="flex w-full text-center">
+          {posts?.previous && (
+            <Button
+              text="Voltar"
+              fn={handlePrevious}
+              className="bg-black w-full mr-5"
+            />
+          )}
+          {posts?.next && (
+            <Button
+              text="Próximo"
+              fn={handleNext}
+              className="bg-black w-full"
+            />
+          )}
         </div>
       </div>
-    </>
+    </div>
   );
 };
