@@ -44,10 +44,10 @@ export const PokeList = () => {
               onClick={handleRedirect}
               id={poke.name}
               key={poke.name}
-              className="border border-red-500 rounded-2xl shadow-inner shadow-gray-400 cursor-pointer"
+              className="border border-red-500 rounded-2xl shadow-inner shadow-gray-400 cursor-pointer items-center"
             >
-              <div className="flex justify-center  flex-wrap">
-                <h3 className="text-black text-1xl mt-2 font-bold">
+              <div className="flex justify-center  flex-wrap items-center">
+                <h3 className="text-black text-1xl mt-2 font-bold ml-2">
                   {poke.name}
                 </h3>
                 <PokeImage url={poke.url} />
