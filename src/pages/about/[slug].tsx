@@ -38,7 +38,7 @@ export default function About() {
         <PokeType url={url} />
         <AboutPoke />
         <BasicStats status={status} />
-        <BaseStats />
+        <BaseStats status={status} />
       </div>
     </div>
   );

@@ -37,10 +37,10 @@ export const BasicStats = ({ status }: IBasicStats) => {
           <p className="">Moves</p>
         </div>
       </div>
-      <p className="mt-5 text-center flex p-2">
+      {/* <p className="mt-5 text-center flex p-2">
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc iaculis
         eros vitae tellus condimentum maximus sit amet in eros.
-      </p>
+      </p> */}
     </>
   );
 };
