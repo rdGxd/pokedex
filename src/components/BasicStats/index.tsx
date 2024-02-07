@@ -1,7 +1,7 @@
 import { IconHeight, IconWeight } from "@/assets";
 import { PokeStatus } from "@/types/PokeStatus";
-import { PokeAbility } from "../PokeAbility";
 import Image from "next/image";
+import { PokeAbility } from "../PokeAbility";
 
 export interface IBasicStats {
   status?: PokeStatus;
@@ -10,7 +10,7 @@ export interface IBasicStats {
 export const BasicStats = ({ status }: IBasicStats) => {
   return (
     <>
-      <div className=" flex justify-around content-center items-center text-center ">
+      <div className=" flex justify-around content-center items-center text-center lg:text-xl xl:text-2xl">
         <div className="p-2">
           {/* Peso */}
           <div className="flex font-medium">
@@ -28,13 +28,13 @@ export const BasicStats = ({ status }: IBasicStats) => {
           </div>
           <p className="mt-4">Height</p>
         </div>
-        <span className="h-20   border-r-2 "></span>
+        <span className="h-20 border-r-2 "></span>
         {/* HABILIDADES */}
         <div>
           <div className=" font-medium">
             <PokeAbility ability={status} />
           </div>
-          <p className="">Moves</p>
+          <p>Moves</p>
         </div>
       </div>
       {/* <p className="mt-5 text-center flex p-2">

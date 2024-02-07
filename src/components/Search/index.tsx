@@ -17,14 +17,14 @@ export const Search = () => {
   };
 
   return (
-    <div className="flex items-center justify-center z-10">
+    <div className="flex items-center justify-center  ">
       <div className="flex">
         <input
           type="text"
           onChange={handleSearchPokemon}
           onKeyDown={handleSubmit}
           value={value}
-          className="rounded-full ml-4 pl-12 p-2 text-gray-500 shadow-inner shadow-gray-500 w-full mr-2"
+          className="rounded-full ml-4 pl-12 p-2 text-gray-500 shadow-inner shadow-gray-500 w-full mr-2 xl:w-96 xl:p-5 xl:text-2xl font-medium"
           placeholder="Search"
         />
       </div>

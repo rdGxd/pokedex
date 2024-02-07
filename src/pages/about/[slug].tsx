@@ -30,7 +30,7 @@ export default function About() {
   }, [value, url]);
 
   return (
-    <div className="bg-gray-500 p-1">
+    <div className="bg-gray-500 p-1  ">
       <Header />
       <Search />
       <AboutInitial status={status} />

@@ -9,7 +9,18 @@ const config: Config = {
     // Or if using `src` directory:
     "./src/**/*.{js,ts,jsx,tsx,mdx}",
   ],
-  theme: {},
+  theme: {
+    extend: {
+      screens: {
+        mobile: "320px",
+        GalaxyS8: "360px",
+        iPhoneSE: "375px",
+        iPhone12: "390px",
+        Pixel7: "412px",
+        iPhoneXR: "414px",
+      },
+    },
+  },
   plugins: [],
 };
 export default config;

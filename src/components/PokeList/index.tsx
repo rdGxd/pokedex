@@ -44,10 +44,10 @@ export const PokeList = () => {
               onClick={handleRedirect}
               id={poke.name}
               key={poke.name}
-              className="border border-red-500 rounded-2xl shadow-inner shadow-gray-400 cursor-pointer items-center"
+              className="border border-red-500 rounded-2xl shadow-inner shadow-gray-400 cursor-pointer items-center "
             >
-              <div className="flex justify-center  flex-wrap items-center">
-                <h3 className="text-black text-1xl mt-2 font-bold ml-2">
+              <div className="flex justify-center  flex-wrap items-center ">
+                <h3 className="text-black text-1xl mt-2 font-bold ml-2 lg:text-2xl">
                   {poke.name}
                 </h3>
                 <PokeImage url={poke.url} />
@@ -61,14 +61,14 @@ export const PokeList = () => {
             <Button
               text="Voltar"
               fn={handlePrevious}
-              className="bg-black w-full mr-5"
+              className="bg-gray-500 w-full mr-5 rounded"
             />
           )}
           {posts?.next && (
             <Button
               text="Próximo"
               fn={handleNext}
-              className="bg-black w-full"
+              className="bg-gray-500 w-full rounded"
             />
           )}
         </div>

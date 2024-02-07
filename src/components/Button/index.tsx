@@ -11,7 +11,7 @@ export const Button = ({ text, fn, className }: ButtonProps) => {
 
   return (
     <div className={`${className}`}>
-      <button className="text-purple-400" type="button" onClick={handleClick}>
+      <button className="lg:text-2xl" type="button" onClick={handleClick}>
         {text}
       </button>
     </div>
